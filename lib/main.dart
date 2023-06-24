@@ -1,29 +1,23 @@
-import 'package:e_commerce_mobile_app/pages/product_details_page.dart';
-import 'package:flutter/material.dart';
+import 'package:e_commerce_mobile_app/pages/card_page.dart';
 import 'package:e_commerce_mobile_app/pages/home_page.dart';
+import 'package:e_commerce_mobile_app/pages/product_details.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: 'home_page',
+      initialRoute: '/home-page',
       routes: {
-        'home_page':(context) {
-          return const HomePage();
-        },
-        'product_details':(context) {
-          return const ProductDetailsPage();
-        }
+        '/home-page': (context) => const HomePage(),
+        '/product-details-page': (context) => const ProductDetails(),
+        '/card-page': (context) => const CardPage(),
       },
-      home: const HomePage(),
     );
   }
 }

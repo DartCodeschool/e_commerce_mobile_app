@@ -17,6 +17,7 @@ class NewArrial extends StatefulWidget {
 }
 
 class _NewArrialState extends State<NewArrial> {
+  bool isFav = false;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -28,20 +29,20 @@ class _NewArrialState extends State<NewArrial> {
           Container(
             height: 180,
             width: 160,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 233, 231, 231),
-              borderRadius: BorderRadius.circular(10),
-            ),
+            decoration: BoxDecoration(color: const Color.fromARGB(255, 233, 231, 231), borderRadius: BorderRadius.circular(10)),
             child: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 100),
                   child: IconButton(
-                    onPressed: (){}, 
-                    icon: const Icon(Icons.favorite, color: Color.fromARGB(255, 247, 33, 33), size: 35,),
-                  ),
+                      onPressed: () {
+                        setState(() {
+                          isFav = !isFav;
+                        });
+                      },
+                      icon: isFav ? const Icon(Icons.favorite, color: Colors.red, size: 30) : const Icon(Icons.favorite_border, color: Colors.black, size: 30)),
                 ),
-                Image.asset(widget.fon, height: 60,),
+                Image.asset(widget.fon, height: 60),
               ],
             ),
           ),
@@ -56,7 +57,10 @@ class _NewArrialState extends State<NewArrial> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(widget.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),
+                        Text(
+                          widget.name,
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
                         const Row(
                           children: [
                             Icon(Icons.star, color: Colors.yellow),
@@ -68,7 +72,10 @@ class _NewArrialState extends State<NewArrial> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 90),
-                    child: Text(widget.price, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
+                    child: Text(
+                      widget.price,
+                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
                   ),
                 ],
               ),

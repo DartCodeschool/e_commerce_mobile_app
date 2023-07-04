@@ -4,14 +4,28 @@ import 'package:flutter/material.dart';
 import '../widget/headline_widget.dart';
 import '../widget/shoes_brend.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final TextEditingController searchController = TextEditingController(text: 'asdf');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
+      bottomNavigationBar: TextButton(child: Text('asdf'), onPressed: () {
+        
+        setState(() {
+          searchController.text +='hello';
+        });
+      },),
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
@@ -36,8 +50,9 @@ class HomePage extends StatelessWidget {
                   height: 49,
                   width: 344,
                   decoration: BoxDecoration(color: const Color(0xFFE7ECF6), borderRadius: BorderRadius.circular(30)),
-                  child: const TextField(
-                    decoration: InputDecoration(
+                  child: TextField(
+                    controller: searchController,
+                    decoration: const InputDecoration(
                       icon: Icon(Icons.search),
                       iconColor: Colors.black54,
                       border: InputBorder.none,

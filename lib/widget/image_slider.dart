@@ -9,7 +9,14 @@ class ImageSlider extends StatefulWidget {
 }
 
 class _ImageSliderState extends State<ImageSlider> with TickerProviderStateMixin {
-  int current = 0;
+  late final TabController controller;
+  @override
+  void initState() {
+    super.initState();
+
+    controller = TabController(length: dataBase.length, initialIndex: 0, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +25,7 @@ class _ImageSliderState extends State<ImageSlider> with TickerProviderStateMixin
           height: 190,
           child: PageView.builder(
               onPageChanged: (value) {
-                current = value;
+                controller.animateTo(value);
                 setState(() {});
               },
               itemCount: dataBase.length,
@@ -71,7 +78,7 @@ class _ImageSliderState extends State<ImageSlider> with TickerProviderStateMixin
           color: Colors.white38,
           indicatorSize: 8,
           selectedColor: Colors.green,
-          controller: TabController(length: dataBase.length, initialIndex: current, vsync: this),
+          controller: controller,
         )
       ],
     );

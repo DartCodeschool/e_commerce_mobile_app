@@ -1,5 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.e_commerce_mobile_app">
+   <application
         android:label="e_commerce_mobile_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

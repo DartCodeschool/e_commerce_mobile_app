@@ -1,10 +1,11 @@
-const List dataBase = [
+const List<Map> dataBase = [
   {
     "image-big": "assets/images/1.png",
     "image-logo": "assets/logo/adidas.webp",
     "image-juft": "assets/juft/1.png",
     "brent-name": "Nike Pegasus 39 Premium",
     "sent": "\$101.85",
+    "color": true,
   },
   {
     "image-big": "assets/images/2.png",
@@ -12,6 +13,7 @@ const List dataBase = [
     "image-juft": "assets/juft/2.png",
     "brent-name": "Nike Pegasus FlyEase By You",
     "sent": "\$183.35",
+    "color": false,
   },
   {
     "image-big": "assets/images/3.png",
@@ -19,6 +21,7 @@ const List dataBase = [
     "image-juft": "assets/juft/3.png",
     "brent-name": "Nike Pegasus 40 By You",
     "sent": "\$183.35",
+    "color": false,
   },
   {
     "image-big": "assets/images/4.png",
@@ -26,6 +29,7 @@ const List dataBase = [
     "image-juft": "assets/juft/4.png",
     "brent-name": "Nike Pegasus 40",
     "sent": "\$145.44",
+    "color": false,
   },
   {
     "image-big": "assets/images/5.png",
@@ -33,6 +37,7 @@ const List dataBase = [
     "image-juft": "assets/juft/5.png",
     "brent-name": "Nike Pegasus 40 Se",
     "sent": "\$145.44",
+    "color": false,
   },
   {
     "image-big": "assets/images/6.png",
@@ -40,5 +45,6 @@ const List dataBase = [
     "image-juft": "assets/juft/6.png",
     "brent-name": "Nike Pegasus 39",
     "sent": "\$125.65",
+    "color": false,
   },
 ];

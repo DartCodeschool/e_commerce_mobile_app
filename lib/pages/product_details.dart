@@ -1,6 +1,8 @@
+import 'package:e_commerce_mobile_app/widget/headline_widget.dart';
 import 'package:e_commerce_mobile_app/widget/shoes_juft.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/bottom_button.dart';
 import '../widget/button.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -10,6 +12,9 @@ class ProductDetails extends StatelessWidget {
     final imageBig = ModalRoute.of(context)!.settings.arguments as Map;
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar:  BottomButton(onPressed: () {
+              Navigator.pushNamed(context, '/card-page');
+            }, title: 'Buy Now',),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0.0,
@@ -28,21 +33,24 @@ class ProductDetails extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 400, child: ShoesTwo()),
+              const SizedBox(
+                height: 400,
+                child: ShoesTwo(),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(vertical: 15),
                           child: Text("Women's Road Running Shoes", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black38)),
                         ),
                         Row(
-                          children: const [
+                          children: [
                             Icon(Icons.star, color: Colors.yellow),
                             Text('4.5', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black38)),
                           ],
@@ -54,31 +62,21 @@ class ProductDetails extends StatelessWidget {
                     Text(imageBig["sent"], style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black)),
                     const Divider(thickness: 1.5),
                     const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text('Select Size', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black87)),
-                        Text('Size Chart', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black54)),
-                      ],
-                    ),
+                    // const Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Text('Select Size', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black87)),
+                    //     Text('Size Chart', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black54)),
+                    //   ],
+                    // ),
+                    const HeadlineWidget(title: 'Select Size', subtitle: 'Size Chart'),
+                    const SizedBox(height: 10),
                     const OnchangeButton(),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 15),
                       child: Text('Descriptions', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black87)),
                     ),
                     const SizedBox(height: 20),
-                    Center(
-                      child: ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                            backgroundColor: const MaterialStatePropertyAll(Colors.green),
-                            minimumSize: const MaterialStatePropertyAll(Size(330, 56)),
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/card-page');
-                          },
-                          child: const Text('Buy Now', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600))),
-                    )
                   ],
                 ),
               ),
